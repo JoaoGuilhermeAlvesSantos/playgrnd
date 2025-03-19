@@ -12,12 +12,11 @@ for i in range(len(opts)):
     for j in range(len(opts)):
         for k in range(len(opts)):
             try:
-                print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}')
                 res = eval(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}')
                 if res == 100:
                     print("found")
+                    print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}', "=", res)
                     exit
-                print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}', "=", res)
 
             except:
                 pass
