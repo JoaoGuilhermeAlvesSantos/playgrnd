@@ -1,14 +1,23 @@
+from itertools import product
+
 # 9 [] 9 [] 9 [] 9 = 100
 numbers = [9, 9, 9, 9]
 opts = ['+', '-', '*', '/', "%", "^", "&", "|", ">>", "<<"]
 
+# calculating all possible combinations
+# Generate all possible combinations of operators for the given numbers
+combinations = list(product(opts, repeat=3))
+print(f'Number of combinations: {len(combinations)}')
 for i in range(len(opts)):
     for j in range(len(opts)):
         for k in range(len(opts)):
             try:
+                print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}')
                 res = eval(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}')
                 if res == 100:
-                    print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}', "=", res)
+                    print("found")
+                    exit
+                print(f'{numbers[0]}{opts[i]}{numbers[1]}{opts[j]}{numbers[2]}{opts[k]}{numbers[3]}', "=", res)
 
             except:
                 pass
