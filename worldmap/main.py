@@ -3,12 +3,13 @@ import pandas as pd
 import plotly.express as px
 
 # Lê o arquivo JSON
-with open('sorted_data.json', 'r') as f:
+with open("sorted_data.json", "r") as f:
     data = json.load(f)
 
 # Converte o dicionário para DataFrame
-events = data['total_events_by_country']
-df = pd.DataFrame(list(events.items()), columns=['country', 'value'])
+events = data["total_events_by_country"]
+df = pd.DataFrame(list(events.items()), columns=["country", "value"])
+
 
 # Define categorias nomeadas para os tiers
 def get_tier_label(val):
@@ -23,15 +24,16 @@ def get_tier_label(val):
     else:
         return "Muito Alto (1500+)"
 
+
 df["tier"] = df["value"].apply(get_tier_label)
 
 # Paleta de cores correspondente aos nomes
 tier_colors = {
-    "Muito Baixo (<50)": "#FAF0CA",  
-    "Baixo (50–199)": "#F4D35E",     
-    "Moderado (200–599)": "#EE964B", 
-    "Alto (600–1499)": "#065143",    
-    "Muito Alto (1500+)": "#044389", 
+    "Muito Baixo (<50)": "#FAF0CA",
+    "Baixo (50–199)": "#F4D35E",
+    "Moderado (200–599)": "#EE964B",
+    "Alto (600–1499)": "#F95738",
+    "Muito Alto (1500+)": "#00171F",
 }
 
 # Mapa com legenda categórica
