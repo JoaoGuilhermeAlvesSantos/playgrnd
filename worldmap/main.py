@@ -16,8 +16,9 @@ fig = px.choropleth(
     locations='country',
     locationmode='country names',
     color='value',
-    color_continuous_scale='hot_r',
+    color_continuous_scale='deep',
     title='Eventos por País'
 )
 
 fig.write_html("../static/tiebe_potential_events_data.html")
+fig.show()
