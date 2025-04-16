@@ -41,7 +41,7 @@ fig = px.choropleth(
     locationmode="country names",
     color="tier",
     color_discrete_map=tier_colors,
-    title="Distribuição de Eventos por País",
+    title="Distribuição de Eventos por Região",
 )
 
 fig.write_html("../static/tiebe_potential_events_data.html")
