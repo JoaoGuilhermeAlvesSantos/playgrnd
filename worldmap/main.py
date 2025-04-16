@@ -16,7 +16,7 @@ fig = px.choropleth(
     locations='country',
     locationmode='country names',
     color='value',
-    color_continuous_scale='deep',
+    color_continuous_scale='sunsetdark',
     title='Eventos por País'
 )
 
