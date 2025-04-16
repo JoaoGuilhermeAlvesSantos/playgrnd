@@ -20,4 +20,4 @@ fig = px.choropleth(
     title='Eventos por País'
 )
 
-fig.write_html("static/mapa_mundi.html")
+fig.write_html("../static/tiebe_potential_events_data.html")
