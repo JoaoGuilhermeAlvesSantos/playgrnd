@@ -30,8 +30,8 @@ tier_colors = {
     "Muito Baixo (<50)": "#FAF0CA",  
     "Baixo (50–199)": "#F4D35E",     
     "Moderado (200–599)": "#EE964B", 
-    "Alto (600–1499)": "#F95738",    
-    "Muito Alto (1500+)": "#00171F", 
+    "Alto (600–1499)": "#065143",    
+    "Muito Alto (1500+)": "#044389", 
 }
 
 # Mapa com legenda categórica
