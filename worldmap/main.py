@@ -43,7 +43,7 @@ fig = px.choropleth(
     locationmode="country names",
     color="tier",
     color_discrete_map=tier_colors,
-    title="Events per Region",
+    title="Worldwide Distribution of TiEBe Events (2015–2025)",
     hover_data={"value": True, "tier": False},  # Mostra só o value no hover
 )
 
