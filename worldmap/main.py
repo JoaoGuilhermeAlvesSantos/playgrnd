@@ -13,27 +13,27 @@ df = pd.DataFrame(list(events.items()), columns=["country", "value"])
 
 # Define categorias nomeadas para os tiers
 def get_tier_label(val):
-    if val < 50:
-        return "Muito Baixo (<50)"
-    elif val < 200:
-        return "Baixo (50–199)"
-    elif val < 600:
-        return "Moderado (200–599)"
-    elif val < 1500:
-        return "Alto (600–1499)"
+    if val < 51:
+        return "Lowest (0-50)"
+    elif val < 201:
+        return "Low (51–200)"
+    elif val < 601:
+        return "Moderate (201–600)"
+    elif val < 1501:
+        return "High (601–1500)"
     else:
-        return "Muito Alto (1500+)"
+        return "Highest (1500+)"
 
 
 df["tier"] = df["value"].apply(get_tier_label)
 
 # Paleta de cores correspondente aos nomes
 tier_colors = {
-    "Muito Baixo (<50)": "#FAF0CA",
-    "Baixo (50–199)": "#F4D35E",
-    "Moderado (200–599)": "#EE964B",
-    "Alto (600–1499)": "#F95738",
-    "Muito Alto (1500+)": "#00171F",
+    "Lowest (0-50)": "#FAF0CA",
+    "Low (51–200)": "#F4D35E",
+    "Moderate (201–600)": "#EE964B",
+    "High (601–1500)": "#F95738",
+    "Highest (1500+)": "#00171F",
 }
 
 # Mapa com legenda categórica
@@ -43,7 +43,8 @@ fig = px.choropleth(
     locationmode="country names",
     color="tier",
     color_discrete_map=tier_colors,
-    title="Distribuição de Eventos por Região",
+    title="Events per Region",
+    hover_data={"value": True, "tier": False},  # Mostra só o value no hover
 )
 
 fig.write_html("../static/tiebe_potential_events_data.html")
