@@ -26,10 +26,17 @@ print(df.to_string(index=False))
 
 # Criar gráfico de barras
 plt.figure(figsize=(10, 6))
-plt.bar(df["Ano"], df["Eventos"], color='blue')
-plt.title("Total de Eventos por Ano")
-plt.xlabel("Ano")
-plt.ylabel("Número de Eventos")
+bars = plt.bar(df["Ano"], df["Eventos"], color="#005f99")
+
+# Adicionar rótulos nas barras
+for bar in bars:
+    yval = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2, yval + 100, f'{yval}', ha='center', va='bottom', fontsize=9)
+
+# Configurações do gráfico
+plt.title("Total Events by Year (2015-2025)", fontsize=16)
+plt.xlabel("Years")
+plt.ylabel("Events")
 plt.xticks(df["Ano"], rotation=45)
 plt.tight_layout()
 
