@@ -3,8 +3,12 @@ import pandas as pd
 import plotly.express as px
 
 # Lê o arquivo JSON
-with open("sorted_data.json", "r") as f:
+file_name = "sorted_data.json"
+with open(file_name, "r") as f:
     data = json.load(f)
+
+fn = file_name.split(".")[0]
+prefix = fn.split("sorted_")[1]
 
 # Converte o dicionário para DataFrame
 events = data["total_events_by_country"]
@@ -47,5 +51,5 @@ fig = px.choropleth(
     hover_data={"value": True, "tier": False},  # Mostra só o value no hover
 )
 
-fig.write_html("../static/tiebe_potential_events_data.html")
+fig.write_html(f"../static/tiebe_potential_events_{prefix}.html")
 fig.show()
