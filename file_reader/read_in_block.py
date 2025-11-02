@@ -1,10 +1,10 @@
 import json
 
-block_size = 10  # 10 MB 
+block_size = 10_000_000  # 10 MB 
 buffer = ""
 
-input_file = "input.jsonl"
-output_file = "output.jsonl"
+input_file = "data/input.jsonl"
+output_file = "data/output.jsonl"
 
 with open(input_file, "r", encoding="utf-8") as f_in, \
      open(output_file, "w", encoding="utf-8") as f_out:
@@ -28,7 +28,7 @@ with open(input_file, "r", encoding="utf-8") as f_in, \
             if item[1] == 1: # Filter by 1
                 f_out.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-    # processbuffer
+    # process buffer
     if buffer.strip():
         try:
             item = json.loads(buffer)
